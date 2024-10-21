@@ -3,6 +3,7 @@ const botaoSubtrair = document.getElementById("subtrair");
 const botaoMultiplicar = document.getElementById("multiplicar");
 const botaoDividir = document.getElementById("dividir");
 const botaoIgual = document.getElementById("=");
+const botaoResto = document.getElementById("%");
 const resultado = document.getElementById("resultado");
 const input = document.getElementById("numeros");
 
@@ -20,6 +21,9 @@ function multiplicar (a, b) {
 
 function dividir (a, b){
     return a / b 
+}
+function resto (a,b) {
+    return parseInt(a % b) 
 }
 
 botaoSomar.addEventListener("click", async () => {
@@ -68,6 +72,17 @@ botaoDividir.addEventListener("click", async () => {
     });
 });
 
+botaoResto.addEventListener ("click", async () => {
+    const valor1 = parseInt(input.value)
+    input.value = ""
+
+    botaoIgual.addEventListener("click", async () => {
+        const valor2 = parseInt(input.value)
+        resultado.textContent = `o valor é ${resto(valor1, valor2)}`
+         input.value = ""
+    });
+});
+
 botaoIgual.addEventListener("click", async () => {
 
-})
+});
